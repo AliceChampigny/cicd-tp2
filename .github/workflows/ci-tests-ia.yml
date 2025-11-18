@@ -78,7 +78,7 @@ jobs:
           echo "Rapport Allure généré : reports/allure-report/index.html"
 
       - name: Sauvegarder des rapports de tests
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-reports
@@ -86,7 +86,7 @@ jobs:
           retention-days: 30
       
       - name: Upload des screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots
