@@ -55,7 +55,7 @@ jobs:
             --html=reports/visual-report.html \
             --self-contained-html
 
-       - name: Exécution complète des tests avec Allure
+      - name: Exécution complète des tests avec Allure
         continue-on-error: true
         if: always()
         run: |
