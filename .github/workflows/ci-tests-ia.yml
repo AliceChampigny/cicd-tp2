@@ -1,0 +1,99 @@
+name: CI - Tests Automatisés avec IA
+
+on:
+  push:
+    branches: [ alice-champigny ] 
+  pull_request:
+    branches: [ alice-champigny ] 
+
+jobs:
+  test-and-analyze:
+    name: Tests + Analyse IA
+    runs-on: ubuntu-latest  
+    
+    strategy:
+      matrix:
+        python-version: ['3.13.9']
+    
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+      
+      - name: Configuration Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+      
+      - name: Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Exécution des tests unitaires
+        run: |
+          pytest tests/ -v --cov=. --cov-report=xml --cov-report=html
+        
+      - name: Install le navigateur
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Génération des tests IA
+        run: |
+          python ai_tools/test_generator.py
+      
+      - name: Exécution des tests générés
+        continue-on-error: true
+        run: |
+          pytest tests/generated/ -v \
+            --html=reports/generated-report.html \
+            --self-contained-html
+      
+      - name: Exécution des tests visuels
+        continue-on-error: true
+        run: |
+          pytest tests/visual/ -v \
+            --html=reports/visual-report.html \
+            --self-contained-html
+
+       - name: Exécution complète des tests avec Allure
+        continue-on-error: true
+        if: always()
+        run: |
+          echo "Exécution de tous les tests avec collecte Allure..."
+          pytest tests/ -v \
+            --html=reports/full-report.html \
+            --self-contained-html \
+            --alluredir=reports/allure-results
+          echo "Résultats Allure collectés dans reports/allure-results/"
+      
+      - name: Génération du rapport Allure
+        if: always()
+        run: |
+          echo "Installation d'Allure CLI..."
+          npm install -g allure-commandline
+          
+          echo "Génération du rapport HTML Allure..."
+          allure generate reports/allure-results --clean -o reports/allure-report
+          
+          echo "Rapport Allure généré : reports/allure-report/index.html"
+
+      - name: Sauvegarder des rapports de tests
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-reports
+          path: reports/
+          retention-days: 30
+      
+      - name: Upload des screenshots
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshots
+          path: screenshots/
+          retention-days: 30
+        
+      
+
+      
+    

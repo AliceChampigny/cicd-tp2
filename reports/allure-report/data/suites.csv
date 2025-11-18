@@ -1,0 +1,44 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+GIVEN un nombre inférieur à 2
+WHEN je vérifie
+THEN retourne False
+","0","test_je_vérifie","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"
+GIVEN le diviseur est zéro
+WHEN je calcule le modulo
+THEN une exception est levée
+","0","test_je_calcule_le_modulo","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"
+GIVEN le résultat est négatif
+WHEN je soustrais
+THEN le signe est correct
+","0","test_je_soustrais","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"
+GIVEN une division décimale
+WHEN je divise
+THEN le résultat est précis
+","0","test_je_divise","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"Test après une opération de calcul","3126","test_after_calculation","tests.visual","Tue Nov 18 15:59:22 CET 2025","passed","Tue Nov 18 15:59:25 CET 2025","TestCalculatorVisual","test_calculator_ui","",""
+"
+GIVEN un nombre négatif
+WHEN je calcule la factorielle
+THEN une exception est levée
+","0","test_je_calcule_la_factorielle","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"Test de l'état initial de la calculatrice","1936","test_initial_state","tests.visual","Tue Nov 18 15:59:15 CET 2025","passed","Tue Nov 18 15:59:16 CET 2025","TestCalculatorVisual","test_calculator_ui","",""
+"Test du contenu affiché (test fonctionnel en bonus)","1545","test_display_content","tests.visual","Tue Nov 18 15:59:30 CET 2025","passed","Tue Nov 18 15:59:31 CET 2025","TestCalculatorVisual","test_calculator_ui","",""
+"
+GIVEN deux nombres décimaux
+WHEN j'additionne
+THEN le résultat est précis
+","0","test_jadditionne","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"
+GIVEN un exposant de zéro
+WHEN je calcule la puissance
+THEN le résultat est 1
+","0","test_je_calcule_la_puissance","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
+"
+GIVEN deux nombres négatifs
+WHEN je multiplie
+THEN le résultat est positif
+","0","test_je_multiplie","tests.generated","Tue Nov 18 15:59:13 CET 2025","passed","Tue Nov 18 15:59:13 CET 2025","TestCalculatorGenerated","test_calculator_generated","",""
