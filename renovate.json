@@ -1,5 +1,6 @@
 {
     "extends": ["config:base"],
+    "baseBranches": ["alice-champigny"],
     "packageRules": [
       {
         "packagePatterns": ["*"],
