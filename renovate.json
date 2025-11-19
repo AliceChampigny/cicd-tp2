@@ -1,0 +1,12 @@
+{
+    "extends": ["config:base"],
+    "packageRules": [
+      {
+        "packagePatterns": ["*"],
+        "enabled": true
+      }
+    ],
+    "schedule": ["at any time"],
+    "automerge": false
+  }
+  
