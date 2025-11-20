@@ -1,5 +1,6 @@
 {
     "extends": ["config:base"],
+    "autodiscover": true,
     "baseBranches": ["alice-champigny"],
     "packageRules": [
       {
