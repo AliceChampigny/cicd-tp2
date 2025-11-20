@@ -93,6 +93,7 @@ jobs:
         uses: renovatebot/github-action@v43.0.20
         with: 
           token: ${{secrets.RENOVATE_TOKEN}}
+          repositories: AliceChampigny/cicd-tp2
         
       
 
