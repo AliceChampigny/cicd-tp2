@@ -95,7 +95,6 @@ jobs:
           LOG_LEVEL: debug
         with: 
           token: ${{secrets.GITHUB_TOKEN}}
-          repositories: alicechampigny/cicd-tp2
         
       
 
